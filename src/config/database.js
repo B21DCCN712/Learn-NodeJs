@@ -1,4 +1,4 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 require('dotenv').config();
 //test connection
 //create the connection to database
@@ -16,6 +16,7 @@ const connection = mysql.createPool({
     database: process.env.DB_name,
     port: process.env.DB_PORT,
     password: process.env.DB_PASSWORD,
+    charset: 'utf8mb4',
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
